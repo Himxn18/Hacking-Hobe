@@ -6,6 +6,9 @@ int data;
 struct node *link;
 };
 struct node *top=NULL;
+void push();
+void pop();
+void display();
 main()
 {
 int ch;
@@ -14,6 +17,7 @@ while(1)
 printf("\n1.push\n");
 printf("\n2.pop\n");
 printf("\n3.display\n");
+printf("Enter your choice\n");
 scanf("%d",&ch);
 switch(ch)
 {
@@ -27,7 +31,7 @@ default:printf("Invalid Choice\n");
 }
 }
 }
-push()
+void push()
 {
 struct node *temp;
 temp=(struct node*)malloc(sizeof(struct node));
@@ -36,7 +40,7 @@ scanf("%d",&temp->data);
 temp->link=top;
 top=temp;
 }
-pop()
+void pop()
 {
 struct node *temp;
 if(top==NULL)
@@ -51,11 +55,11 @@ temp->link=NULL;
 free(temp);
 }
 }
-display()
+void display()
 {
 struct node *temp;
 if(top==NULL)
-printf("No elements in the last\n");
+printf("No elements in the list\n");
 else{
 temp=top;
 while(temp!=NULL)
